@@ -62,5 +62,20 @@
             Milestone resault = this.task;
             return resault;
         }
+
+        public Milestone CreateMilestone(TaskCsv task)
+        {
+            var milestoneBuilder = new MilestoneBuilder();
+            milestoneBuilder.SetID(task.ID);
+            milestoneBuilder.SetPriority(task.Priority);
+            milestoneBuilder.SetDescription(task.Description);
+            milestoneBuilder.SetPredecessors();
+            milestoneBuilder.SetWork(task.Work);
+            milestoneBuilder.SetResponsible(task.Responsible);
+            milestoneBuilder.SetMinStartDate(task.MinStartDate);
+            milestoneBuilder.SetMaxEndDate(task.MaxEndDate);
+            Milestone resaultMilestone = milestoneBuilder.Build();
+            return resaultMilestone;
+        }
     }
 }

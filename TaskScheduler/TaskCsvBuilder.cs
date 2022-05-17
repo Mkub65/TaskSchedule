@@ -72,5 +72,22 @@
             TaskCsv resault = this.task;
             return resault;
         }
+
+        public TaskCsv CreateTaskCsv(AbstractTask task)
+        {
+            var taskCsvBuilder = new TaskCsvBuilder();
+            taskCsvBuilder.SetID(task.ID);
+            taskCsvBuilder.SetPriority(task.Priority);
+            taskCsvBuilder.SetDescription(task.Description);
+            taskCsvBuilder.SetPredecessors();
+            taskCsvBuilder.SetWork(task.Work);
+            taskCsvBuilder.SetResponsible(task.Responsible);
+            taskCsvBuilder.SetMinStartDate(task.MinStartDate);
+            taskCsvBuilder.SetMaxEndDate(task.MaxEndDate);
+            taskCsvBuilder.SetStartDate(task.StartDate);
+            taskCsvBuilder.SetEndDate(task.EndDate);
+            TaskCsv resaultTaskCsv = taskCsvBuilder.Build();
+            return resaultTaskCsv;
+        }
     }
 }

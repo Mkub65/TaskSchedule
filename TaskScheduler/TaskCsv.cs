@@ -41,15 +41,7 @@
                 {
                     var milestoneBuilder = new MilestoneBuilder();
 
-                    milestoneBuilder.SetID(listCsv[i].ID);
-                    milestoneBuilder.SetPriority(listCsv[i].Priority);
-                    milestoneBuilder.SetDescription(listCsv[i].Description);
-                    milestoneBuilder.SetPredecessors();
-                    milestoneBuilder.SetWork(listCsv[i].Work);
-                    milestoneBuilder.SetResponsible(listCsv[i].Responsible);
-                    milestoneBuilder.SetMinStartDate(listCsv[i].MinStartDate);
-                    milestoneBuilder.SetMaxEndDate(listCsv[i].MaxEndDate);
-                    Milestone resaultMilestone = milestoneBuilder.Build();
+                    Milestone resaultMilestone = milestoneBuilder.CreateMilestone(listCsv[i]);
 
                     taskList.Add(listCsv[i].ID, resaultMilestone);
                 }
@@ -57,15 +49,7 @@
                 {
                     var taskBuilder = new TaskBuilder();
 
-                    taskBuilder.SetID(listCsv[i].ID);
-                    taskBuilder.SetPriority(listCsv[i].Priority);
-                    taskBuilder.SetDescription(listCsv[i].Description);
-                    taskBuilder.SetPredecessors();
-                    taskBuilder.SetWork(listCsv[i].Work);
-                    taskBuilder.SetResponsible(listCsv[i].Responsible);
-                    taskBuilder.SetMinStartDate(listCsv[i].MinStartDate);
-                    taskBuilder.SetMaxEndDate(listCsv[i].MaxEndDate);
-                    Task resaultTask = taskBuilder.Build();
+                    Task resaultTask = taskBuilder.CreateTask(listCsv[i]);
 
                     taskList.Add(listCsv[i].ID, resaultTask);
                 }
@@ -75,15 +59,7 @@
 
             var lastTaskBuilder = new TaskBuilder();
 
-            lastTaskBuilder.SetID(listCsv[j].ID);
-            lastTaskBuilder.SetPriority(listCsv[j].Priority);
-            lastTaskBuilder.SetDescription(listCsv[j].Description);
-            lastTaskBuilder.SetPredecessors();
-            lastTaskBuilder.SetWork(listCsv[j].Work);
-            lastTaskBuilder.SetResponsible(listCsv[j].Responsible);
-            lastTaskBuilder.SetMinStartDate(listCsv[j].MinStartDate);
-            lastTaskBuilder.SetMaxEndDate(listCsv[j].MaxEndDate);
-            Task resaultLastTask = lastTaskBuilder.Build();
+            Task resaultLastTask = lastTaskBuilder.CreateTask(listCsv[j]);
 
             taskList.Add(listCsv[j].ID, resaultLastTask);
 
@@ -140,17 +116,7 @@
             {
                 var taskCsvBuilder = new TaskCsvBuilder();
 
-                taskCsvBuilder.SetID(list[i].ID);
-                taskCsvBuilder.SetPriority(list[i].Priority);
-                taskCsvBuilder.SetDescription(list[i].Description);
-                taskCsvBuilder.SetPredecessors();
-                taskCsvBuilder.SetWork(list[i].Work);
-                taskCsvBuilder.SetResponsible(list[i].Responsible);
-                taskCsvBuilder.SetMinStartDate(list[i].MinStartDate);
-                taskCsvBuilder.SetMaxEndDate(list[i].MaxEndDate);
-                taskCsvBuilder.SetStartDate(list[i].StartDate);
-                taskCsvBuilder.SetEndDate(list[i].EndDate);
-                TaskCsv resaultTaskCsv = taskCsvBuilder.Build();
+                TaskCsv resaultTaskCsv = taskCsvBuilder.CreateTaskCsv(list[i]);
 
                 taskList.Add(resaultTaskCsv);
             }
