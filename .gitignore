@@ -2,6 +2,6 @@
 .vs/**
 tool/
 .editorconfig
-.sln
+*.sln
 **/obj/**
 **/bin/**
