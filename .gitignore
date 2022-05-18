@@ -5,3 +5,4 @@ tool/
 *.sln
 **/obj/**
 **/bin/**
+**/TestResults/**
